@@ -35,16 +35,3 @@ else{
     }
 }
 
-# Define the service behavior
-while($true) {
-    # Check if the admin user exists
-    if (Get-LocalUser -Name $adminUserName -ErrorAction SilentlyContinue) {
-        Write-EventLog -LogName Application -Source "MyService" -EventId 100 -Message "Admin user '$adminUserName' exists"
-    }
-    else {
-        Write-EventLog -LogName Application -Source "MyService" -EventId 101 -Message "Admin user '$adminUserName' doesn't exist"
-    }
-
-    # Wait for 10 minutes before checking again
-    Start-Sleep -Seconds 600
-}
